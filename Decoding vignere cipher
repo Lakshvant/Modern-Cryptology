@@ -1,0 +1,30 @@
+#include "bits/stdc++.h"
+using namespace std;
+
+bool comp (pair<char,int>a , pair<char,int>b ){
+	return a.second>b.second;
+}
+ 
+int main() {
+	string text, s;
+	freopen("in.txt", "r", stdin);
+	freopen("out.txt", "w", stdout);
+	while(cin >> s){
+		text.append(s);
+	}
+	vector<pair<char,int>> count(26);
+	for(int i=0 ; i<26 ; i++){
+		count[i].first = 'a'+i;
+		count[i].second = 0;
+	}
+	for(auto x: text){
+		if(x >= 'A' && x <= 'Z') x += 'a' - 'A';
+		if(x >= 'a' && x <= 'z') count[x - 'a'].second++;
+	}
+	
+	sort (count.begin() , count.end() , comp);
+
+	for(int i = 0; i < 26; i++){
+		cout << count[i].first << ' ' << count[i].second << endl;
+	}
+}
