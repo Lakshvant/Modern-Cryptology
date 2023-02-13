@@ -1,0 +1,21 @@
+#include<bits/stdc++.h>
+using namespace std;
+
+signed main()
+{
+    set<string> s{"an", "at", "as", "be", "do", "go", "he", "if", "in", "is", "it", "me", "my", "no", "of", "on", "so", "to", "up", "us", "we"};
+    string s1("qh"), s2("dg");
+    for(int i = 0; i < 26; i++){
+        for(int j = 0; j < 26; j++){
+            string a(s1), b(s2);
+            a[0] = ((a[0] - 'a') + i)%26 + 'a';
+            a[1] = ((a[1] - 'a') + j)%26 + 'a';
+            b[0] = ((b[0] - 'a') + i)%26 + 'a';
+            b[1] = ((b[1] - 'a') + j)%26 + 'a';
+            if(s.count(a) && s.count(b)){
+                cout << i << ' ' << j << ' ' << a << ' ' << b << '\n';
+            }
+        }
+    }
+	return 0;
+}   
